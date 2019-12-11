@@ -35,16 +35,16 @@ class SunRiseSetAlgo
     L = mod(L, 360);
 
     //5a. calculate the Sun's right ascension
-    double RA = atanDeg(0.91764 * tanDeg(L));
-    RA = mod(RA, 360);
+    double rightAscension = atanDeg(0.91764 * tanDeg(L));
+    rightAscension = mod(rightAscension, 360);
 
     //5b. right ascension value needs to be in the same quadrant as L
-    double Lquadrant  = (( L/90).floorToDouble()) * 90;
-    double RAquadrant = ((RA/90).floorToDouble()) * 90;
-    RA = RA + (Lquadrant - RAquadrant);
+    double lQuadrant  = (( L/90).floorToDouble()) * 90;
+    double raQuadrant = ((rightAscension/90).floorToDouble()) * 90;
+    rightAscension = rightAscension + (lQuadrant - raQuadrant);
 
     //5c. right ascension value needs to be converted into hours
-    RA = RA / 15;
+    rightAscension = rightAscension / 15;
 
     //6. calculate the Sun's declination
     double sinDec = 0.39782 * sinDeg(L);
@@ -69,13 +69,13 @@ class SunRiseSetAlgo
     H = H / 15;
 
     //8. calculate local mean time of rising/setting
-    double T = H + RA - (0.06571 * t) - 6.622;
+    double T = H + rightAscension - (0.06571 * t) - 6.622;
 
     //9. adjust back to UTC
-    double UT = T - lngHour;
+    double utc = T - lngHour;
 
     //10. convert UT value to local time zone of latitude/longitude
-    double localT = UT + localOffset;
+    double localT = utc + localOffset;
     localT = mod(localT, 24);
     return localT;
   }
