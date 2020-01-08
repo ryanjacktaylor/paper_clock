@@ -267,11 +267,14 @@ void drawFrontBaseCloud(Canvas canvas, Rect drawRect) {
       PaperClouds.getScaledFrontBaseClouds(drawRect, drawRect.height * .08);
 
   //Draw the filled in cloud.  The shadow is drawn on a vertically offset path.
-  canvas.drawShadow(cloudPaths[PaperClouds.SHADOW_PATH], Colors.black, 10.0, false);
-  canvas.drawPath(cloudPaths[PaperClouds.CLOUD_PATH], PaperPaints.getBaseCloudPaint(drawRect));
+  canvas.drawShadow(
+      cloudPaths[PaperClouds.SHADOW_PATH], Colors.black, 10.0, false);
+  canvas.drawPath(cloudPaths[PaperClouds.CLOUD_PATH],
+      PaperPaints.getBaseCloudPaint(drawRect));
 
   //Add the accent
-  canvas.drawPath(cloudPaths[PaperClouds.CLOUD_PATH], PaperPaints.getLinePaint(1));
+  canvas.drawPath(
+      cloudPaths[PaperClouds.CLOUD_PATH], PaperPaints.getLinePaint(1));
 }
 
 void drawMiddleBaseCloud(Canvas canvas, Rect drawRect) {
@@ -280,11 +283,14 @@ void drawMiddleBaseCloud(Canvas canvas, Rect drawRect) {
       PaperClouds.getScaledMiddleBaseClouds(drawRect, drawRect.height * .08);
 
   //Draw the filled in cloud.  The shadow is drawn on a vertically offset path.
-  canvas.drawShadow(cloudPaths[PaperClouds.SHADOW_PATH], Colors.black, 10.0, false);
-  canvas.drawPath(cloudPaths[PaperClouds.CLOUD_PATH], PaperPaints.getBaseCloudPaint(drawRect));
+  canvas.drawShadow(
+      cloudPaths[PaperClouds.SHADOW_PATH], Colors.black, 10.0, false);
+  canvas.drawPath(cloudPaths[PaperClouds.CLOUD_PATH],
+      PaperPaints.getBaseCloudPaint(drawRect));
 
   //Add the accent
-  canvas.drawPath(cloudPaths[PaperClouds.CLOUD_PATH], PaperPaints.getLinePaint(1));
+  canvas.drawPath(
+      cloudPaths[PaperClouds.CLOUD_PATH], PaperPaints.getLinePaint(1));
 }
 
 void drawBackBaseCloud(Canvas canvas, Rect drawRect) {
@@ -293,11 +299,14 @@ void drawBackBaseCloud(Canvas canvas, Rect drawRect) {
       PaperClouds.getScaledBackBaseClouds(drawRect, drawRect.height * .08);
 
   //Draw the filled in cloud.  The shadow is drawn on a vertically offset path.
-  canvas.drawShadow(cloudPaths[PaperClouds.SHADOW_PATH], Colors.black, 10.0, false);
-  canvas.drawPath(cloudPaths[PaperClouds.CLOUD_PATH], PaperPaints.getBaseCloudPaint(drawRect));
+  canvas.drawShadow(
+      cloudPaths[PaperClouds.SHADOW_PATH], Colors.black, 10.0, false);
+  canvas.drawPath(cloudPaths[PaperClouds.CLOUD_PATH],
+      PaperPaints.getBaseCloudPaint(drawRect));
 
   //Add the accent
-  canvas.drawPath(cloudPaths[PaperClouds.CLOUD_PATH], PaperPaints.getLinePaint(1));
+  canvas.drawPath(
+      cloudPaths[PaperClouds.CLOUD_PATH], PaperPaints.getLinePaint(1));
 }
 
 void drawMountain(Canvas canvas, Rect drawRect) {
@@ -471,7 +480,7 @@ void drawStar(Canvas canvas, double time, double sunrise, double sunset,
   canvas.drawPath(starPath, PaperPaints.getSunMoonStarAccentPaint());
 }
 
-void drawRain(Canvas canvas, Rect drawRect){
+void drawRain(Canvas canvas, Rect drawRect) {
   for (int col = 0; col < 6; col++) {
     for (int row = 0; row < 2; row++) {
       if (row == 1 && (col == 7)) continue;
@@ -485,8 +494,7 @@ void drawRain(Canvas canvas, Rect drawRect){
           Offset(drawRect.width * .06, -drawRect.width * .02),
           radius: Radius.circular(drawRect.width * .03),
           clockwise: false);
-      rainDropPath.relativeLineTo(
-          -drawRect.width * .03, -drawRect.width * .04);
+      rainDropPath.relativeLineTo(-drawRect.width * .03, -drawRect.width * .04);
 
       //Create the paint
       canvas.drawShadow(rainDropPath, Colors.black, 3.0, true);
@@ -495,7 +503,7 @@ void drawRain(Canvas canvas, Rect drawRect){
   }
 }
 
-void drawSnow(Canvas canvas, Rect drawRect){
+void drawSnow(Canvas canvas, Rect drawRect) {
   for (int col = 1; col < 6; col++) {
     for (int row = 0; row < 2; row++) {
       if (row == 1 && col == 5) continue;
@@ -509,8 +517,7 @@ void drawSnow(Canvas canvas, Rect drawRect){
             drawRect.bottom +
                 row * drawRect.height * .25 +
                 drawRect.height * .125);
-        snowPath.relativeLineTo(
-            drawRect.width * .06 * Math.cos(radToPoint * i),
+        snowPath.relativeLineTo(drawRect.width * .06 * Math.cos(radToPoint * i),
             drawRect.width * .06 * Math.sin(radToPoint * i));
       }
 
@@ -542,7 +549,7 @@ void drawSnow(Canvas canvas, Rect drawRect){
   }
 }
 
-void drawLightning(Canvas canvas, Rect drawRect){
+void drawLightning(Canvas canvas, Rect drawRect) {
   Path lightningPath = Path();
   lightningPath.moveTo(
       drawRect.center.dx, drawRect.bottomCenter.dy - .2 * drawRect.height);
@@ -557,6 +564,6 @@ void drawLightning(Canvas canvas, Rect drawRect){
 
   //Draw the shadow and lightning
   canvas.drawShadow(lightningPath, Colors.black, 5.0, true);
-  canvas.drawPath(lightningPath,
-      PaperPaints.getLightningPaint(lightningPath.getBounds()));
+  canvas.drawPath(
+      lightningPath, PaperPaints.getLightningPaint(lightningPath.getBounds()));
 }

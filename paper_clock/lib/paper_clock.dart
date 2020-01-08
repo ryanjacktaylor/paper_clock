@@ -83,7 +83,6 @@ class _PaperClockState extends State<PaperClock> {
 
   @override
   Widget build(BuildContext context) {
-
     final timeFormat = DateFormat.Hm().format(DateTime.now());
     final time = DateTime.now();
 
@@ -126,4 +125,3 @@ class _PaperClockState extends State<PaperClock> {
     );
   }
 }
-
