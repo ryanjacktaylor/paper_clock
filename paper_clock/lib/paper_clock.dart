@@ -6,7 +6,6 @@ import 'package:flutter/semantics.dart';
 import 'package:intl/intl.dart';
 import 'package:paper_clock/paper_canvas.dart';
 import 'package:paper_clock/sun_rise_set.dart';
-import 'sun_rise_set.dart';
 
 class PaperClock extends StatefulWidget {
   const PaperClock(this.model);
